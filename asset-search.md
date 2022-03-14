@@ -1,11 +1,9 @@
-# Tips for asset search via ```
-gcloud command
+# Tips for asset search via gcloud command
 
 
 ### get default project
 ```
-export MY_PROJ=$(```
-gcloud config list --format 'value(core.project)')
+export MY_PROJ=$(gcloud config list --format 'value(core.project)')
 
 ```
 ### List all private IPs for a project
