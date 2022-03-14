@@ -1,4 +1,4 @@
-# For Beginner: Understand the config for SDK and CLI
+## For Beginner: Understand the config for SDK and CLI
 
 ```
 # Init by following the wizard step by step
@@ -26,7 +26,7 @@ gcloud config set compute/zone us-central1-a
 gcloud auth login
 ```
 
-# Advanced: Config cloud SDK
+## Advanced: Config cloud SDK
 
 ```
 # Check the current default config
@@ -42,7 +42,7 @@ gcloud auth login
 
 ```
 
-# DEMO Use Case: Keep ephemeral auth config to persistent volume
+## DEMO Use Case: Keep ephemeral auth config to persistent volume
 Use Case #1: When you use VDI in client environment, you need install and config and auth SDK every time because by default it's not installed on the persistent volume. How to install and config it on a persistent volume?
 
 Use Case #2: When you use GCP in a new container at your own computer, you need config and auth SDK every time. Instead, how to use the pre-configured auth from your local computer?
