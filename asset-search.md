@@ -24,9 +24,9 @@ gcloud asset search-all-resources \
 
 ```
 ### List all private IPs for a subnet within a project by filter
+```
 export MY_SUB_NET=default
 
-```
 gcloud asset search-all-resources \
  --filter="additionalAttributes.networkInterfaceNetworks[0]:projects/$MY_PROJ/global/networks/$MY_SUB_NET" \
  --project=$MY_PROJ \

@@ -1,12 +1,12 @@
 # gcloud config tips
 
 ### Resolve python3.9 issue with error: AttributeError: module 'importlib' has no attribute 'util'
-### solution: user python 3.8 
+Solution: user python 3.8 
 
 ### make sure python3 uses 3.8
 ```
 which python3
-### should be /usr/bin/python3
+# /usr/bin/python3
 ```
 
 ### remove the incorerct soft link of 3.9
@@ -19,9 +19,10 @@ export CLOUDSDK_PYTHON=python3
 
 ### Get folder id/Hierarchy of parent or Ancestry for a project, run in cloud cli if denied in local terminal
 ```
-curl -X POST -H "Authorization: Bearer \"$(gcloud auth application-default print-access-token)\"" \
-          -H "Content-Type: application/json; charset=utf-8" \
-             https://cloudresourcemanager.googleapis.com/v1/projects/indigo-lotus-318921:getAncestry
+# get default project
+export MY_PROJ=$(gcloud config list --format 'value(core.project)')
+
+gcloud alpha projects get-ancestors $MY_PROJ
 
 gcloud resource-manager folders create \
    --display-name=[DISPLAY_NAME] \
@@ -39,23 +40,12 @@ gcloud resource-manager folders create \
 
 ### Create new proj under my folder sada-jmy-test
 ```
-export MY_PROJ=proj-jmy-anthos
-
 gcloud projects create $MY_PROJ \
    --folder=1234567899  
 
-curl -X GET -H "Authorization: Bearer \"$(gcloud auth application-default print-access-token)\"" \
--H "Content-Type: application/json; charset=utf-8" \
-https://cloudresourcemanager.googleapis.com/v3/projects
-
-curl -X POST -H "Authorization: Bearer \"$(gcloud auth application-default print-access-token)\"" \
-          -H "Content-Type: application/json; charset=utf-8" \
-             https://cloudresourcemanager.googleapis.com/v1/projects/sada-jmy-test-2021:getAncestry   
-
-
 gcloud resource-manager folders describe 1234567899
 
-gcloud projects describe proj-jmy-anthos
+gcloud projects describe $MY_PROJ
 
 gcloud config list
 
